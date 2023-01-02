@@ -17,11 +17,12 @@ private val retrofit = Retrofit.Builder()
     .baseUrl(BASE_URL)
     .build()
 
-interface ImageApiService{
-    @GET("v2/list")
-suspend fun getImages(): List<ImagesData>
+interface ImageApiService {
+    @GET("/v2/list?page=1&limit=100")
+    suspend fun getImages(): List<ImagesData>
+
 }
 
-object ImageApi{
-    val retrofitService:ImageApiService by lazy { retrofit.create(ImageApiService::class.java) }
+object ImageApi {
+    val retrofitService: ImageApiService by lazy { retrofit.create(ImageApiService::class.java) }
 }

@@ -16,6 +16,9 @@ android {
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
+    buildFeatures {
+        dataBinding true
+    }
 
     buildTypes {
         release {
@@ -41,4 +44,16 @@ dependencies {
     testImplementation 'junit:junit:4.13.2'
     androidTestImplementation 'androidx.test.ext:junit:1.1.4'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.5.0'
+
+    implementation 'androidx.navigation:navigation-fragment-ktx:2.5.3'
+    implementation 'androidx.navigation:navigation-ui-ktx:2.5.3'
+
+    implementation 'com.google.android.material:material:1.7.0'
+
+    // moshi
+    implementation 'com.squareup.moshi:moshi-kotlin:1.9.3'
+    // retrofit
+    implementation 'com.squareup.retrofit2:converter-moshi:2.9.0'
+    // coil
+    implementation "io.coil-kt:coil:2.2.2"
 }

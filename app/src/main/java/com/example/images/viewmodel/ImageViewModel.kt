@@ -22,8 +22,6 @@ class ImageViewModel : ViewModel() {
     private val _imagePicked = MutableLiveData<ImagesData>()
     val imagePicked: LiveData<ImagesData> = _imagePicked
 
-    val image = MutableLiveData<String>()
-    val name1 = MutableLiveData<String>()
 
     init {
         getImages()
@@ -45,9 +43,6 @@ class ImageViewModel : ViewModel() {
 
     fun onImageClicked(imagesData:ImagesData){
         _imagePicked.value = imagesData
-        val  item = _imagePicked.value
-        image.value = imagesData.url
-        name1.value = imagesData.author
         Log.v("ta22","onImageClicked ImageViewModel.imagePicked.value=${imagePicked.value}")
     }
 

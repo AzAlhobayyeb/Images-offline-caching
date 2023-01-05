@@ -6,12 +6,19 @@
     app:startDestination="@id/imageListFragment">
 
     <fragment
+        android:id="@+id/imageListFragment"
+        android:name="com.example.images.ui.ImageListFragment"
+        android:label="ImageListFragment" >
+        <action
+            android:id="@+id/action_imageListFragment_to_imageDetailsFragment"
+            app:destination="@id/imageDetailsFragment" >
+
+        </action>
+    </fragment>
+
+    <fragment
         android:id="@+id/imageDetailsFragment"
         android:name="com.example.images.ui.ImageDetailsFragment"
         android:label="fragment_image_details"
         tools:layout="@layout/fragment_image_details" />
-    <fragment
-        android:id="@+id/imageListFragment"
-        android:name="com.example.images.ui.ImageListFragment"
-        android:label="ImageListFragment" />
 </navigation>

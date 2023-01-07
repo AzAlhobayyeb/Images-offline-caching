@@ -8,7 +8,7 @@
     <fragment
         android:id="@+id/imageListFragment"
         android:name="com.example.images.ui.ImageListFragment"
-        android:label="ImageListFragment" >
+        android:label="Images" >
         <action
             android:id="@+id/action_imageListFragment_to_imageDetailsFragment"
             app:destination="@id/imageDetailsFragment" >
@@ -19,6 +19,6 @@
     <fragment
         android:id="@+id/imageDetailsFragment"
         android:name="com.example.images.ui.ImageDetailsFragment"
-        android:label="fragment_image_details"
+        android:label="Image"
         tools:layout="@layout/fragment_image_details" />
 </navigation>

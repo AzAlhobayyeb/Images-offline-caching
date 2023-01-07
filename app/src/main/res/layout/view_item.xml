@@ -15,16 +15,19 @@
             type="com.example.images.viewmodel.ImageViewModel" />
     </data>
 
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:layout_width="160dp"
-        android:layout_height="160dp"
+    <com.google.android.material.card.MaterialCardView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:id="@+id/card_view"
-        android:onClick="@{() -> clickListener.onCLick(image)}"
-        >
+        app:cardBackgroundColor="@color/darkgray"
+        app:cardCornerRadius="8dp"
+        app:cardElevation="6dp"
+        app:cardMaxElevation="12dp"
+        android:onClick="@{() -> clickListener.onCLick(image)}">
     <ImageView
         android:id="@+id/images"
-        android:layout_width="160dp"
-        android:layout_height="140dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:adjustViewBounds="true"
         android:padding="2dp"
         android:scaleType="fitXY"
@@ -35,18 +38,8 @@
         app:layout_constraintStart_toStartOf="parent"
         tools:src="@tools:sample/backgrounds/scenic"/>
 
-        <TextView
-            android:id="@+id/textimg"
-            android:text="@{image.author}"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:textAlignment="center"
-            app:layout_constraintTop_toBottomOf="@id/images"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"/>
 
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+</com.google.android.material.card.MaterialCardView>
 
 </layout>

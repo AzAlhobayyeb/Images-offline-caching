@@ -56,4 +56,5 @@ class ImageGridAdpter(val clickListener:ImageListener)
 }
     class ImageListener(val clickListener:(imageData: ImagesData) ->Unit){
         fun onCLick(imageData: ImagesData) = clickListener(imageData)
+
     }

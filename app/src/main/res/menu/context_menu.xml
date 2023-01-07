@@ -6,7 +6,7 @@
     <item
     android:id="@+id/option_menu"
         android:icon="@drawable/ic_baseline_more_vert_24"
-        android:title="more"
+        android:title="@string/more"
         app:showAsAction="always"
         app:actionViewClass="androidx.appcompat.widget.ContentFrameLayout"/>
 </menu>

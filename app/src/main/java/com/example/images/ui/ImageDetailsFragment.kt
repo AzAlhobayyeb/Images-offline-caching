@@ -1,6 +1,7 @@
 package com.example.images.ui
 
 import android.content.Intent
+import android.graphics.Bitmap
 import android.net.Uri
 import android.os.Bundle
 import android.util.Log
@@ -11,6 +12,8 @@ import androidx.fragment.app.activityViewModels
 import com.example.images.R
 import com.example.images.databinding.FragmentImageDetailsBinding
 import com.example.images.viewmodel.ImageViewModel
+import java.io.File
+import java.io.FileOutputStream
 
 class ImageDetailsFragment : Fragment() {
 
@@ -38,8 +41,8 @@ class ImageDetailsFragment : Fragment() {
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         when (item.itemId){
             R.id.visit_author_page -> visitAuthor()
-            R.id.down_image -> downImage()
             R.id.save_image -> saveImage()
+            R.id.share_image -> shareImage()
         }
             return super.onOptionsItemSelected(item)
     }
@@ -61,15 +64,11 @@ class ImageDetailsFragment : Fragment() {
         val queryUri: Uri = Uri.parse("${SEARCH_PREFIX}${authorUn}")
         val intent = Intent(Intent.ACTION_VIEW, queryUri)
         context?.startActivity(intent)
-        Log.v("visitAuthor()","queryUri:${queryUri},authorUn:${authorUn}")
     }
 
-   private fun downImage(){
-
+   private fun saveImage(){
     }
 
-    private fun saveImage(){
-
+    private fun shareImage(){
     }
-
 }

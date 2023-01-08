@@ -4,16 +4,15 @@ import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
 import android.view.*
-import android.widget.ImageButton
 
+import android.view.Menu
+import android.view.MenuItem
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
-import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import com.example.images.R
 import com.example.images.adapter.ImageGridAdpter
 import com.example.images.adapter.ImageListener
-
 import com.example.images.databinding.FragmentImageListBinding
 import com.example.images.viewmodel.ImageViewModel
 
@@ -39,12 +38,26 @@ class ImageListFragment : Fragment() {
     }
     override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
         inflater.inflate(R.menu.image_menu, menu)
+        val unsplashMenu = menu.findItem(R.id.unsplash_menu)
+        setIcon(unsplashMenu)
     }
+
+    private fun visitUnslash() {
+            val queryUri: Uri = Uri.parse(SEARCH_PREFIX)
+            val intent = Intent(Intent.ACTION_VIEW, queryUri)
+            context?.startActivity(intent)
+    }
+
+    private fun setIcon(menuItem: MenuItem?) {
+        if (menuItem == null)
+            return
+    }
+
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         when(item.itemId){
-
+            R.id.visit_unslash->{ visitUnslash() }
         }
-        return true
+        return super.onOptionsItemSelected(item)
     }
 
 }

@@ -5,8 +5,18 @@
     <item
         android:id="@+id/unsplash_menu"
         android:icon="@drawable/unsplash_logo_icon_206651"
-        android:title="@string/visit_unsplash_com"
-        app:actionViewClass="androidx.appcompat.widget.ContentFrameLayout"
-        app:showAsAction="always" />
+        android:title="@string/open_unslash"
+        app:showAsAction="ifRoom">
+
+        <menu>
+            <item
+                android:id="@+id/visit_unslash"
+                android:icon="@drawable/ic_baseline_open_in_browser_24"
+                android:title="@string/visit_unsplash_com"
+                app:showAsAction="never" />
+        </menu>
+
+
+    </item>
 
 </menu>

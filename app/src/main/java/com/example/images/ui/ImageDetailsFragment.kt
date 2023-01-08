@@ -24,7 +24,6 @@ class ImageDetailsFragment : Fragment() {
         val binding = FragmentImageDetailsBinding.inflate(inflater)
         binding.lifecycleOwner = this
         binding.viewModel = viewModel
-        // Inflate the layout for this fragment
 
         setHasOptionsMenu(true)
         return binding.root
@@ -32,24 +31,45 @@ class ImageDetailsFragment : Fragment() {
 
     override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
         inflater.inflate(R.menu.context_menu, menu)
+        val optionMenu = menu.findItem(R.id.option_menu)
+        setIcon(optionMenu)
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        return super.onOptionsItemSelected(item)
+        when (item.itemId){
+            R.id.visit_author_page -> visitAuthor()
+            R.id.down_image -> downImage()
+            R.id.save_image -> saveImage()
+        }
+            return super.onOptionsItemSelected(item)
     }
 
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+    }
+
+    private fun setIcon(menuItem: MenuItem?) {
+        if (menuItem == null)
+            return
+    }
+
+    private fun visitAuthor(){
         var authorUn = viewModel.imagePicked.value?.author
         if (authorUn != null) {
-            authorUn = authorUn.replace("\\s".toRegex(), "")
-        }
-        val searchButton: ImageButton = view.findViewById(R.id.ndbutton)
-        searchButton.setOnClickListener {
-            val queryUri: Uri = Uri.parse("${SEARCH_PREFIX}${authorUn}")
-            val intent = Intent(Intent.ACTION_VIEW, queryUri)
-            context?.startActivity(intent)
-        }
+            authorUn = authorUn.replace("\\s".toRegex(), "") }
+        val queryUri: Uri = Uri.parse("${SEARCH_PREFIX}${authorUn}")
+        val intent = Intent(Intent.ACTION_VIEW, queryUri)
+        context?.startActivity(intent)
+        Log.v("visitAuthor()","queryUri:${queryUri},authorUn:${authorUn}")
     }
+
+   private fun downImage(){
+
+    }
+
+    private fun saveImage(){
+
+    }
+
 }

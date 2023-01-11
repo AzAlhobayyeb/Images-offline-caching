@@ -2,20 +2,16 @@ package com.example.images.adapter
 
 
 import android.view.LayoutInflater
-import android.view.View.OnClickListener
 import android.view.ViewGroup
-import androidx.cardview.widget.CardView
-import androidx.core.net.toUri
-import androidx.navigation.findNavController
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.example.images.databinding.ViewItemBinding
-import com.example.images.network.ImagesData
-import com.example.images.ui.ImageListFragment
-import com.example.images.ui.ImageListFragmentDirections
 
 
+
+
+/*
 class ImageGridAdpter(val clickListener:ImageListener)
     :ListAdapter<ImagesData,ImageGridAdpter.ImageViewHolder>(DiffCallback) {
 
@@ -54,7 +50,9 @@ class ImageGridAdpter(val clickListener:ImageListener)
         holder.bind(clickListener, images)
     }
 }
+
     class ImageListener(val clickListener:(imageData: ImagesData) ->Unit){
         fun onCLick(imageData: ImagesData) = clickListener(imageData)
 
     }
+*/

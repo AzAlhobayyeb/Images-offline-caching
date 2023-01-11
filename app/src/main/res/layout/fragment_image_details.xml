@@ -6,7 +6,7 @@
     <data>
         <variable
             name="viewModel"
-            type="com.example.images.viewmodel.ImageViewModel" />
+            type="com.example.images.viewmodel.ImagesViewModel" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -14,37 +14,19 @@
         android:layout_height="match_parent"
         android:background="@color/darkgray"
         tools:context="com.example.images.ui.ImageDetailsFragment">
-<TextView
-    android:text="@{viewModel.imagePicked.author}"
-    android:id="@+id/tvd"
-    android:textColor="@color/white"
-    android:gravity="center"
-    android:textSize="20sp"
-    android:layout_marginTop="16dp"
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    app:layout_constraintStart_toStartOf="parent"
-    app:layout_constraintEnd_toEndOf="parent"
-    app:layout_constraintTop_toTopOf="parent"/>
+
 
     <ImageView
-        app:imageUrl="@{viewModel.imagePicked.url}"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/ndimage"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/tvd"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
         tools:src="@drawable/ic_launcher_background"/>
 
-    <ImageButton
-        android:id="@+id/ndbutton"
-        android:layout_width="64dp"
-        android:layout_height="64dp"
-        app:layout_constraintTop_toTopOf="@id/tvd"
-        app:layout_constraintEnd_toEndOf="parent"
-        android:layout_marginTop="22dp"
-        app:srcCompat="@drawable/ic_baseline_search_24"/>
+
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>

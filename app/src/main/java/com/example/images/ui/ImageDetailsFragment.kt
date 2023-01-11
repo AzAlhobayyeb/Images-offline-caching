@@ -11,13 +11,12 @@ import android.widget.ImageButton
 import androidx.fragment.app.activityViewModels
 import com.example.images.R
 import com.example.images.databinding.FragmentImageDetailsBinding
-import com.example.images.viewmodel.ImageViewModel
 import java.io.File
 import java.io.FileOutputStream
 
 class ImageDetailsFragment : Fragment() {
 
-    private val viewModel: ImageViewModel by activityViewModels()
+  //  private val viewModel: ImageViewModel by activityViewModels()
     val SEARCH_PREFIX = "https://unsplash.com/@"
 
     override fun onCreateView(
@@ -26,7 +25,7 @@ class ImageDetailsFragment : Fragment() {
     ): View? {
         val binding = FragmentImageDetailsBinding.inflate(inflater)
         binding.lifecycleOwner = this
-        binding.viewModel = viewModel
+     //   binding.viewModel = viewModel
 
         setHasOptionsMenu(true)
         return binding.root
@@ -58,12 +57,12 @@ class ImageDetailsFragment : Fragment() {
     }
 
     private fun visitAuthor(){
-        var authorUn = viewModel.imagePicked.value?.author
-        if (authorUn != null) {
-            authorUn = authorUn.replace("\\s".toRegex(), "") }
-        val queryUri: Uri = Uri.parse("${SEARCH_PREFIX}${authorUn}")
-        val intent = Intent(Intent.ACTION_VIEW, queryUri)
-        context?.startActivity(intent)
+     //   var authorUn = viewModel.imagePicked.value?.author
+     //   if (authorUn != null) {
+       //     authorUn = authorUn.replace("\\s".toRegex(), "") }
+       // val queryUri: Uri = Uri.parse("${SEARCH_PREFIX}${authorUn}")
+       // val intent = Intent(Intent.ACTION_VIEW, queryUri)
+        //context?.startActivity(intent)
     }
 
    private fun saveImage(){

@@ -6,39 +6,34 @@
     <data>
         <variable
             name="viewModel"
-            type="com.example.images.viewmodel.ImageViewModel" />
+            type="com.example.images.viewmodel.ImagesViewModel" />
     </data>
 
-    <androidx.constraintlayout.widget.ConstraintLayout
+    <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+        android:id="@+id/mySwipeRefreshLayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+    <FrameLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context="com.example.images.ui.ImageListFragment">
+        android:background="@color/darkgray">
 
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/image_list"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:padding="6dp"
-            android:clipToPadding="false"
-            app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            android:background="@color/darkgray"
-            app:listData="@{viewModel.imagesModel}"
-            app:spanCount="1"
-            tools:listitem="@layout/view_item" />
-
-        <ImageView
-            android:id="@+id/status_image"
+        <ProgressBar
+            android:id="@+id/loading_spinner"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:ImageApiStatus="@{viewModel.status}" />
+            app:isNetworkError = "@{safeUnbox(viewModel.eventNetworkError)}"
+            app:playlist = "@{viewModel.playlist}"
+            android:layout_gravity="center" />
 
-    </androidx.constraintlayout.widget.ConstraintLayout>
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recycler_view"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            tools:listitem="@layout/view_item" />
+
+    </FrameLayout>
+
+    </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
 </layout>

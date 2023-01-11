@@ -1,28 +1,52 @@
 package com.example.images.network
 
-import com.squareup.moshi.Moshi
-import com.squareup.moshi.kotlin.reflect.KotlinJsonAdapterFactory
-import retrofit2.Retrofit
-import retrofit2.converter.moshi.MoshiConverterFactory
-import retrofit2.http.GET
 
-private const val BASE_URL = "https://picsum.photos/"
+import com.example.images.database.DatabaseImages
+import com.example.images.domain.ImagesModels
+import com.squareup.moshi.Json
+import com.squareup.moshi.JsonClass
 
-private val moshi = Moshi.Builder()
-    .add(KotlinJsonAdapterFactory())
-    .build()
 
-private val retrofit = Retrofit.Builder()
-    .addConverterFactory(MoshiConverterFactory.create(moshi))
-    .baseUrl(BASE_URL)
-    .build()
+@JsonClass(generateAdapter = true)
+data class NetworkImageContainer(val images:List<NetworkImage>)
 
-interface ImageApiService {
-    @GET("/v2/list?page=1&limit=100")
-    suspend fun getImages(): List<ImagesData>
+@JsonClass(generateAdapter = true)
+data class NetworkImage(
+    val id: String,
+    val author:String,
+    @Json(name = "download_url")val download_url: String,
+    // val width: String,
+    // val height: String,
+    // val url: String
+    )
 
+
+fun NetworkImageContainer.asDomainModel(): List<ImagesModels> {
+    return images.map {
+        ImagesModels(
+            id = it.id,
+            author = it.author,
+            download_url = it.download_url,
+       //     width = it.width,
+         //   height = it.height,
+           // url = it.url
+    )
+    }
 }
 
-object ImageApi {
-    val retrofitService: ImageApiService by lazy { retrofit.create(ImageApiService::class.java) }
+fun NetworkImageContainer.asDatabaseModel(): List<DatabaseImages>{
+    return images.map {
+        DatabaseImages(
+            id = it.id,
+            author = it.author,
+            download_url = it.download_url,
+//            width = it.width,
+//            height = it.height,
+//            url = it.url
+        )
+
+    }
 }
+
+
+

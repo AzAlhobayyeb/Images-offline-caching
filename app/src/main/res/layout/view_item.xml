@@ -6,13 +6,10 @@
     <data>
         <variable
             name="image"
-            type="com.example.images.network.ImagesData" />
+            type="com.example.images.domain.ImagesModels" />
         <variable
-            name="clickListener"
-            type="com.example.images.adapter.ImageListener" />
-        <variable
-            name="viewModel"
-            type="com.example.images.viewmodel.ImageViewModel" />
+            name="imageCallback"
+            type="com.example.images.ui.ImageClick" />
     </data>
 
     <com.google.android.material.card.MaterialCardView
@@ -23,7 +20,8 @@
         app:cardCornerRadius="8dp"
         app:cardElevation="6dp"
         app:cardMaxElevation="12dp"
-        android:onClick="@{() -> clickListener.onCLick(image)}">
+        android:onClick="@{() -> imageCallback.onClick(image)}">
+
     <ImageView
         android:id="@+id/images"
         android:layout_width="wrap_content"
@@ -31,7 +29,7 @@
         android:adjustViewBounds="true"
         android:padding="2dp"
         android:scaleType="fitXY"
-        app:imageUrl="@{image.url}"
+        app:imageUrl="@{image.download_url}"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"

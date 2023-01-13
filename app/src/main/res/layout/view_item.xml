@@ -7,9 +7,6 @@
         <variable
             name="image"
             type="com.example.images.domain.ImagesModels" />
-        <variable
-            name="imageCallback"
-            type="com.example.images.ui.ImageClick" />
     </data>
 
     <com.google.android.material.card.MaterialCardView
@@ -19,8 +16,7 @@
         app:cardBackgroundColor="@color/darkgray"
         app:cardCornerRadius="8dp"
         app:cardElevation="6dp"
-        app:cardMaxElevation="12dp"
-        android:onClick="@{() -> imageCallback.onClick(image)}">
+        app:cardMaxElevation="12dp">
 
     <ImageView
         android:id="@+id/images"
@@ -35,7 +31,6 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         tools:src="@tools:sample/backgrounds/scenic"/>
-
 
 
 </com.google.android.material.card.MaterialCardView>

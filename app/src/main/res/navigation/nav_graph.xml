@@ -8,10 +8,18 @@
     <fragment
         android:id="@+id/imageListFragment"
         android:name="com.example.images.ui.ImageListFragment"
-        android:label="Images" >
+        android:label="Images"
+        tools:layout="@layout/fragment_image_list">
         <action
             android:id="@+id/action_imageListFragment_to_imageDetailsFragment"
             app:destination="@id/imageDetailsFragment" >
+
+            <argument
+                android:name="author"
+                app:argType="string" />
+            <argument
+                android:name="download_url"
+                app:argType="string" />
 
         </action>
     </fragment>

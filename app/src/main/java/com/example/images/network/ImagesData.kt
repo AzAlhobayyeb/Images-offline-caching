@@ -10,35 +10,22 @@ import retrofit2.http.GET
 
 private const val BASE_URL = "https://picsum.photos/"
 
-private val moshi = Moshi.Builder()
-    .add(KotlinJsonAdapterFactory())
-    .build()
-
-private val retrofit = Retrofit.Builder()
-    .addConverterFactory(MoshiConverterFactory.create(moshi))
-    .baseUrl(BASE_URL)
-    .build()
 
 
 interface ImageApiService {
     @GET("v2/list")
-    suspend fun getImages(): NetworkImageContainer
+    suspend fun getImages(): List<NetworkImage>
 }
 
 object ImageApiNet {
-
-    val retrofitService= retrofit.create(ImageApiService::class.java)
-}
-
-
-
-
-
-
-
-
-/*\  private val moshi = Moshi.Builder()
+    private val moshi = Moshi.Builder()
         .add(KotlinJsonAdapterFactory())
         .build()
-        
- */
+
+    private val retrofit = Retrofit.Builder()
+        .addConverterFactory(MoshiConverterFactory.create(moshi))
+        .baseUrl(BASE_URL)
+        .build()
+
+    val retrofitService: ImageApiService by lazy { retrofit.create(ImageApiService::class.java) }
+}

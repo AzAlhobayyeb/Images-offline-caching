@@ -22,11 +22,6 @@
                 android:title="@string/share_image"
                 app:showAsAction="never" />
 
-            <item
-                android:id="@+id/save_image"
-                android:icon="@drawable/ic_baseline_download_24"
-                android:title="@string/save_image"
-                app:showAsAction="never" />
 
         </menu>
 

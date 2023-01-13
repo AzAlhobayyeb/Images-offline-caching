@@ -6,14 +6,11 @@ import com.example.images.domain.ImagesModels
 
 
 @Entity
-data class DatabaseImages constructor(
+data class DatabaseImages (
     @PrimaryKey
     val id: String,
     val author: String,
     val download_url: String
-//    val width: String,
-//    val height: String,
-//    val url: String
     )
 
 fun List<DatabaseImages>.asDomainModel(): List<ImagesModels> {
@@ -22,10 +19,6 @@ fun List<DatabaseImages>.asDomainModel(): List<ImagesModels> {
             id = it.id,
             author = it.author,
             download_url = it.download_url
-//            width = it.width,
-//            height = it.height,
-//            url = it.url
         )
-
     }
 }

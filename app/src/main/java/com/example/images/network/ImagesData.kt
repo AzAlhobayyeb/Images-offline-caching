@@ -13,7 +13,7 @@ private const val BASE_URL = "https://picsum.photos/"
 
 
 interface ImageApiService {
-    @GET("v2/list")
+    @GET("v2/list?page=2&limit=100")
     suspend fun getImages(): List<NetworkImage>
 }
 

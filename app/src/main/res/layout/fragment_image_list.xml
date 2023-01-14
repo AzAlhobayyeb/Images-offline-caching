@@ -12,7 +12,9 @@
     <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
         android:id="@+id/mySwipeRefreshLayout"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:background="@color/darkgray"
+        tools:context="com.example.images.ui.ImageListFragment">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
@@ -33,7 +35,7 @@
             app:layout_constraintTop_toTopOf="parent"
             android:background="@color/darkgray"
             app:listData="@{viewModel.playlist}"
-            app:spanCount="2"
+            app:spanCount="1"
             tools:listitem="@layout/view_item" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>

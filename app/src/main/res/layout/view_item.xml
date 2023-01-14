@@ -8,6 +8,9 @@
             name="image"
             type="com.example.images.domain.ImagesModels" />
     </data>
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
 
     <com.google.android.material.card.MaterialCardView
         android:layout_width="wrap_content"
@@ -16,7 +19,11 @@
         app:cardBackgroundColor="@color/darkgray"
         app:cardCornerRadius="8dp"
         app:cardElevation="6dp"
-        app:cardMaxElevation="12dp">
+        app:cardMaxElevation="12dp"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
 
     <ImageView
         android:id="@+id/images"
@@ -34,5 +41,6 @@
 
 
 </com.google.android.material.card.MaterialCardView>
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
 </layout>

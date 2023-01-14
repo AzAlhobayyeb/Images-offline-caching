@@ -27,8 +27,6 @@
         tools:src="@drawable/ic_launcher_background"/>
 
 
-
-
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 </layout>
